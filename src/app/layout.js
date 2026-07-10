@@ -1,8 +1,8 @@
 import './globals.css';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Poppins } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap', weight: ['400', '500', '600'] });
+const poppins = Poppins({ subsets: ['latin'], variable: '--font-poppins', display: 'swap', weight: ['600', '700', '800'] });
 
 export const metadata = {
   title: 'A1 Custom Prints & Embroidery | Custom T-Shirts, Corporate Shirts & School Uniforms',
@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>

@@ -6,16 +6,8 @@ import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
 
 const PRICING = {
-  cotton: {
-    kids: 24,
-    'SM-XL': 27,
-    XXL: 30,
-  },
-  dryfit: {
-    kids: 28,
-    'SM-XL': 30,
-    XXL: 32,
-  },
+  cotton: { kids: 24, 'SM-XL': 27, XXL: 30 },
+  dryfit: { kids: 28, 'SM-XL': 30, XXL: 32 },
 };
 
 const COLORS = {
@@ -47,7 +39,7 @@ export default function SchoolUniforms() {
             <div>
               <div className="product-images">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/category-2-corporate/port-authority-men.jpg" alt="Port Authority School Polo" />
+                <img src="/images/category-2-corporate/paragon-ladies.jpg" alt="School Uniform Polo" />
               </div>
               <div style={{ marginTop: '16px' }} className="chart-card">
                 <h4>Port Authority Color & Size Chart</h4>
@@ -55,8 +47,8 @@ export default function SchoolUniforms() {
                   Available in cotton and dryfit. Full color and size charts available on request.
                 </p>
                 <div style={{ marginTop: '12px' }}>
-                  <a href="/images/category-2-corporate/port-authority-women-chart.pdf" target="_blank" rel="noreferrer" className="btn btn-outline" style={{ fontSize: '14px' }}>
-                    View Women's Size Chart PDF →
+                  <a href="/images/category-2-corporate/port-authority-women-chart.pdf" target="_blank" rel="noreferrer" className="btn btn-warm" style={{ fontSize: '14px' }}>
+                    View Size Chart PDF →
                   </a>
                 </div>
               </div>
@@ -64,71 +56,47 @@ export default function SchoolUniforms() {
 
             {/* Configurator */}
             <div className="product-info">
-              <div className="accent-line"></div>
-              <h1>School Uniform<br/>Polos with Embroidery</h1>
+              <div className="product-badge">🎓 School Embroidery</div>
+              <h1>School Uniform<br/><span className="gradient-text">Polos</span></h1>
               <div className="price-range">$24 – $32 per polo</div>
               <p className="description">
                 Port Authority brand polos with custom school embroidery.
-                Available in cotton and dryfit fabrics. Perfect for school uniforms —
-                durable, comfortable, and professionally embroidered with your school's logo.
+                Available in cotton and dryfit fabrics. Durable, comfortable, and
+                professionally embroidered with your school's logo.
               </p>
 
               <div className="configurator">
                 <div className="config-group">
                   <span className="config-label">Fabric</span>
                   <div className="config-options">
-                    <button
-                      className={`config-chip ${fabric === 'cotton' ? 'active' : ''}`}
-                      onClick={() => setFabric('cotton')}
-                    >Cotton</button>
-                    <button
-                      className={`config-chip ${fabric === 'dryfit' ? 'active' : ''}`}
-                      onClick={() => setFabric('dryfit')}
-                    >Dryfit</button>
+                    <button className={`config-chip ${fabric === 'cotton' ? 'active' : ''}`} onClick={() => setFabric('cotton')}>Cotton</button>
+                    <button className={`config-chip ${fabric === 'dryfit' ? 'active' : ''}`} onClick={() => setFabric('dryfit')}>Dryfit</button>
                   </div>
                 </div>
 
                 <div className="config-group">
                   <span className="config-label">Size Group</span>
                   <div className="config-options">
-                    <button
-                      className={`config-chip ${sizeGroup === 'kids' ? 'active' : ''}`}
-                      onClick={() => setSizeGroup('kids')}
-                    >Kids</button>
-                    <button
-                      className={`config-chip ${sizeGroup === 'SM-XL' ? 'active' : ''}`}
-                      onClick={() => setSizeGroup('SM-XL')}
-                    >Adult SM–XL</button>
-                    <button
-                      className={`config-chip ${sizeGroup === 'XXL' ? 'active' : ''}`}
-                      onClick={() => setSizeGroup('XXL')}
-                    >Adult XXL</button>
+                    <button className={`config-chip ${sizeGroup === 'kids' ? 'active' : ''}`} onClick={() => setSizeGroup('kids')}>Kids</button>
+                    <button className={`config-chip ${sizeGroup === 'SM-XL' ? 'active' : ''}`} onClick={() => setSizeGroup('SM-XL')}>Adult SM–XL</button>
+                    <button className={`config-chip ${sizeGroup === 'XXL' ? 'active' : ''}`} onClick={() => setSizeGroup('XXL')}>Adult XXL</button>
                   </div>
-                  <div style={{ marginTop: '8px', fontSize: '14px', color: 'var(--accent)', fontWeight: 600 }}>
+                  <div style={{ marginTop: '8px', fontSize: '14px', fontWeight: 700, color: 'var(--accent)' }}>
                     ${price} each
                   </div>
                 </div>
 
                 <div className="config-group">
                   <span className="config-label">Color</span>
-                  <select
-                    className="config-select"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                  >
+                  <select className="config-select" value={color} onChange={(e) => setColor(e.target.value)}>
                     {COLORS[fabric].map(c => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
 
                 <div className="config-group">
                   <span className="config-label">School Name</span>
-                  <input
-                    type="text"
-                    className="config-select"
-                    placeholder="e.g. Queen's College, St. Andrew's..."
-                    value={schoolName}
-                    onChange={(e) => setSchoolName(e.target.value)}
-                  />
+                  <input type="text" className="config-select" placeholder="e.g. Queen's College, St. Andrew's..."
+                    value={schoolName} onChange={(e) => setSchoolName(e.target.value)} />
                 </div>
 
                 <div className="config-group">
@@ -141,39 +109,18 @@ export default function SchoolUniforms() {
                 </div>
 
                 <div className="order-summary">
-                  <div className="order-line">
-                    <span>Product</span>
-                    <span>Port Authority School Polo ({color})</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Fabric</span>
-                    <span>{fabric === 'cotton' ? 'Cotton' : 'Dryfit'}</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Size Group</span>
-                    <span>{sizeGroup === 'kids' ? 'Kids' : sizeGroup === 'SM-XL' ? 'Adult SM-XL' : 'Adult XXL'}</span>
-                  </div>
-                  <div className="order-line">
-                    <span>School</span>
-                    <span>{schoolName || '—'}</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Unit Price</span>
-                    <span>${price}</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Quantity</span>
-                    <span>{qty}</span>
-                  </div>
-                  <div className="order-total">
-                    <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
-                  </div>
+                  <div className="order-line"><span>Product</span><span>Port Authority Polo ({color})</span></div>
+                  <div className="order-line"><span>Fabric</span><span>{fabric === 'cotton' ? 'Cotton' : 'Dryfit'}</span></div>
+                  <div className="order-line"><span>Size Group</span><span>{sizeGroup === 'kids' ? 'Kids' : sizeGroup === 'SM-XL' ? 'Adult SM-XL' : 'Adult XXL'}</span></div>
+                  <div className="order-line"><span>School</span><span>{schoolName || '—'}</span></div>
+                  <div className="order-line"><span>Unit Price</span><span>${price}</span></div>
+                  <div className="order-line"><span>Quantity</span><span>{qty}</span></div>
+                  <div className="order-total"><span>Total</span><span>${total.toFixed(2)}</span></div>
                 </div>
 
                 <div style={{ marginTop: '20px' }}>
                   <Link href="/contact" className="btn btn-primary" style={{ width: '100%' }}>
-                    Place Order Request
+                    Place Order Request →
                   </Link>
                 </div>
               </div>

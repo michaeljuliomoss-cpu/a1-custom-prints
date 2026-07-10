@@ -12,32 +12,37 @@ export default function Home() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-text">
-              <div className="accent-line"></div>
-              <h1 className="display">Custom Prints<br/>& Embroidery</h1>
-              <p>
-                Premium DTF printing and embroidery services in The Bahamas.
-                From custom t-shirts to corporate wear and school uniforms —
-                quality you can feel, designs that make an impression.
+              <div className="hero-badge">
+                <span className="dot-pulse"></span>
+                Custom Prints & Embroidery · Nassau, Bahamas
+              </div>
+              <h1 className="display">
+                Make it <span className="gradient-text">yours.</span><br/>
+                Make it <span className="gradient-text-cool">bold.</span>
+              </h1>
+              <p className="hero-desc">
+                Premium DTF printing and embroidery on Gildan tees, corporate polos,
+                and school uniforms. Upload your design, pick your colors, and we handle the rest.
               </p>
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <Link href="/category/dtf-tshirts" className="btn btn-primary">Shop Now</Link>
-                <Link href="/contact" className="btn btn-outline">Get a Quote</Link>
+              <div className="hero-buttons">
+                <Link href="/category/dtf-tshirts" className="btn btn-primary">Shop T-Shirts →</Link>
+                <Link href="/category/corporate-shirts" className="btn btn-cool">Corporate Wear</Link>
               </div>
             </div>
             <div className="hero-image">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/hero/hero-banner.jpg" alt="A1 Custom Prints & Embroidery banner" />
+              <img src="/images/hero/hero-banner.jpg" alt="A1 Custom Prints & Embroidery" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Categories */}
-      <section className="section section-soft">
+      <section className="section">
         <div className="container">
           <div className="section-header">
-            <h2>Our Products</h2>
-            <p>Three ways to customize. Choose your category and start building your order.</p>
+            <h2>What we <span className="gradient-text">do</span></h2>
+            <p>Three ways to customize. Pick your category, choose your style, upload your design.</p>
           </div>
           <div className="category-grid">
             {/* Category 1 */}
@@ -48,9 +53,9 @@ export default function Home() {
               </div>
               <div className="category-card-body">
                 <h3>T-Shirts with DTF Print</h3>
-                <p>Full-color DTF printed Gildan 100% cotton t-shirts. Choose your color, size, and upload your design.</p>
+                <p>Full-color DTF printed Gildan 100% cotton tees. Pick your color, size, and upload your design.</p>
                 <div className="category-price">From $13</div>
-                <span className="btn btn-outline" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
+                <span className="btn btn-primary" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
               </div>
             </Link>
 
@@ -62,26 +67,23 @@ export default function Home() {
               </div>
               <div className="category-card-body">
                 <h3>Corporate Shirts</h3>
-                <p>Port Authority, Paragon, and Blue Generation styles. Blank or embroidered for your team.</p>
+                <p>Port Authority, Paragon, and Blue Generation. Blank or embroidered for your team.</p>
                 <div className="category-price">Blank or Embroidered</div>
-                <span className="btn btn-outline" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
+                <span className="btn btn-cool" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
               </div>
             </Link>
 
             {/* Category 3 */}
             <Link href="/category/school-uniforms" className="category-card">
-              <div className="category-card-image" style={{ background: 'var(--accent-soft)' }}>
-                <div style={{ textAlign: 'center', padding: '40px' }}>
-                  <div style={{ fontSize: '64px', marginBottom: '12px' }}>🎓</div>
-                  <div style={{ fontSize: '18px', fontWeight: 600, color: 'var(--ink)' }}>School Uniform Polos</div>
-                  <div style={{ fontSize: '14px', color: 'var(--ink-soft)', marginTop: '8px' }}>Embroidered · Cotton & Dryfit</div>
-                </div>
+              <div className="category-card-image">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/category-2-corporate/paragon-ladies.jpg" alt="School Uniform Polos" />
               </div>
               <div className="category-card-body">
                 <h3>School Uniform Polos</h3>
-                <p>Port Authority polos with custom embroidery. Cotton and dryfit options for students.</p>
+                <p>Port Authority polos with custom school embroidery. Cotton and dryfit options.</p>
                 <div className="category-price">From $24</div>
-                <span className="btn btn-outline" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
+                <span className="btn btn-warm" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
               </div>
             </Link>
           </div>
@@ -89,45 +91,45 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="section">
+      <section className="section" style={{ background: 'var(--bg)' }}>
         <div className="container">
           <div className="section-header">
-            <h2>How It Works</h2>
+            <h2>How it <span className="gradient-text-cool">works</span></h2>
             <p>Simple steps from concept to custom product.</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '30px', textAlign: 'center' }}>
-            <div>
-              <div style={{ fontSize: '40px', marginBottom: '12px' }}>🎨</div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 400, marginBottom: '8px' }}>Choose</h3>
-              <p style={{ fontSize: '15px', color: 'var(--ink-soft)' }}>Pick your product, style, and color</p>
+          <div className="steps-grid">
+            <div className="step-card">
+              <div className="step-icon">🎨</div>
+              <h3>Choose</h3>
+              <p>Pick your product, style, and color</p>
             </div>
-            <div>
-              <div style={{ fontSize: '40px', marginBottom: '12px' }}>📏</div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 400, marginBottom: '8px' }}>Size</h3>
-              <p style={{ fontSize: '15px', color: 'var(--ink-soft)' }}>Select sizes from our size charts</p>
+            <div className="step-card">
+              <div className="step-icon">📏</div>
+              <h3>Size</h3>
+              <p>Select sizes from our size charts</p>
             </div>
-            <div>
-              <div style={{ fontSize: '40px', marginBottom: '12px' }}>📤</div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 400, marginBottom: '8px' }}>Upload</h3>
-              <p style={{ fontSize: '15px', color: 'var(--ink-soft)' }}>Send us your design or logo</p>
+            <div className="step-card">
+              <div className="step-icon">📤</div>
+              <h3>Upload</h3>
+              <p>Send us your design or logo</p>
             </div>
-            <div>
-              <div style={{ fontSize: '40px', marginBottom: '12px' }}>📦</div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 400, marginBottom: '8px' }}>Receive</h3>
-              <p style={{ fontSize: '15px', color: 'var(--ink-soft)' }}>We print, embroider & deliver</p>
+            <div className="step-card">
+              <div className="step-icon">📦</div>
+              <h3>Receive</h3>
+              <p>We print, embroider & deliver</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section section-soft">
-        <div className="container" style={{ textAlign: 'center', maxWidth: '680px' }}>
-          <h2 className="headings" style={{ marginBottom: '16px' }}>Ready to start your custom order?</h2>
-          <p style={{ fontSize: '18px', color: 'var(--ink-soft)', marginBottom: '30px' }}>
-            Get in touch and we'll bring your design to life.
-          </p>
-          <Link href="/contact" className="btn btn-primary">Get a Quote</Link>
+      <section className="section">
+        <div className="container">
+          <div className="cta-section">
+            <h2>Ready to make it yours?</h2>
+            <p>Get in touch and we'll bring your design to life.</p>
+            <Link href="/contact" className="btn">Get a Quote →</Link>
+          </div>
         </div>
       </section>
 

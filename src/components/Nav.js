@@ -9,7 +9,7 @@ export default function Nav() {
   return (
     <nav className="nav">
       <div className="nav-inner">
-        <Link href="/" className="nav-logo">A1<span>.</span></Link>
+        <Link href="/" className="nav-logo">A1<span className="dot"></span></Link>
         <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? '✕' : '☰'}
         </button>

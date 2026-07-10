@@ -81,13 +81,12 @@ export default function CorporateShirts() {
 
             {/* Configurator */}
             <div className="product-info">
-              <div className="accent-line"></div>
-              <h1>Corporate Shirts<br/>Blank or Embroidered</h1>
+              <div className="product-badge">👔 Professional Grade</div>
+              <h1>Corporate<br/><span className="gradient-text-cool">Shirts</span></h1>
               <div className="price-range">Blank: $22 · Embroidered: $35+</div>
               <p className="description">
                 Professional corporate shirts from Port Authority, Paragon, and Blue Generation.
                 Available blank or with custom embroidery for your company logo.
-                Choose your style, gender, color, and size.
               </p>
 
               <div className="configurator">
@@ -95,11 +94,7 @@ export default function CorporateShirts() {
                   <span className="config-label">Brand</span>
                   <div className="config-options">
                     {STYLES.map(s => (
-                      <button
-                        key={s.brand}
-                        className={`config-chip ${brand === s.brand ? 'active' : ''}`}
-                        onClick={() => setBrand(s.brand)}
-                      >{s.brand}</button>
+                      <button key={s.brand} className={`config-chip ${brand === s.brand ? 'active' : ''}`} onClick={() => setBrand(s.brand)}>{s.brand}</button>
                     ))}
                   </div>
                 </div>
@@ -108,11 +103,7 @@ export default function CorporateShirts() {
                   <span className="config-label">Gender</span>
                   <div className="config-options">
                     {currentStyle.gender.map(g => (
-                      <button
-                        key={g}
-                        className={`config-chip ${gender === g ? 'active' : ''}`}
-                        onClick={() => setGender(g)}
-                      >{g}</button>
+                      <button key={g} className={`config-chip ${gender === g ? 'active' : ''}`} onClick={() => setGender(g)}>{g}</button>
                     ))}
                   </div>
                 </div>
@@ -120,24 +111,14 @@ export default function CorporateShirts() {
                 <div className="config-group">
                   <span className="config-label">Type</span>
                   <div className="config-options">
-                    <button
-                      className={`config-chip ${embroidery ? 'active' : ''}`}
-                      onClick={() => setEmbroidery(true)}
-                    >Embroidered (+$13)</button>
-                    <button
-                      className={`config-chip ${!embroidery ? 'active' : ''}`}
-                      onClick={() => setEmbroidery(false)}
-                    >Blank</button>
+                    <button className={`config-chip ${embroidery ? 'active' : ''}`} onClick={() => setEmbroidery(true)}>Embroidered (+$13)</button>
+                    <button className={`config-chip ${!embroidery ? 'active' : ''}`} onClick={() => setEmbroidery(false)}>Blank</button>
                   </div>
                 </div>
 
                 <div className="config-group">
                   <span className="config-label">Color</span>
-                  <select
-                    className="config-select"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                  >
+                  <select className="config-select" value={color} onChange={(e) => setColor(e.target.value)}>
                     {currentStyle.colors.map(c => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
@@ -146,11 +127,7 @@ export default function CorporateShirts() {
                   <span className="config-label">Size</span>
                   <div className="config-options">
                     {currentStyle.sizes.map(s => (
-                      <button
-                        key={s}
-                        className={`config-chip ${size === s ? 'active' : ''}`}
-                        onClick={() => setSize(s)}
-                      >{s}</button>
+                      <button key={s} className={`config-chip ${size === s ? 'active' : ''}`} onClick={() => setSize(s)}>{s}</button>
                     ))}
                   </div>
                 </div>
@@ -165,35 +142,17 @@ export default function CorporateShirts() {
                 </div>
 
                 <div className="order-summary">
-                  <div className="order-line">
-                    <span>Product</span>
-                    <span>{brand} {gender} Shirt ({color})</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Type</span>
-                    <span>{embroidery ? 'Embroidered' : 'Blank'}</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Size</span>
-                    <span>{size}</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Unit Price</span>
-                    <span>${basePrice}</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Quantity</span>
-                    <span>{qty}</span>
-                  </div>
-                  <div className="order-total">
-                    <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
-                  </div>
+                  <div className="order-line"><span>Product</span><span>{brand} {gender} ({color})</span></div>
+                  <div className="order-line"><span>Type</span><span>{embroidery ? 'Embroidered' : 'Blank'}</span></div>
+                  <div className="order-line"><span>Size</span><span>{size}</span></div>
+                  <div className="order-line"><span>Unit Price</span><span>${basePrice}</span></div>
+                  <div className="order-line"><span>Quantity</span><span>{qty}</span></div>
+                  <div className="order-total"><span>Total</span><span>${total.toFixed(2)}</span></div>
                 </div>
 
                 <div style={{ marginTop: '20px' }}>
-                  <Link href="/contact" className="btn btn-primary" style={{ width: '100%' }}>
-                    Place Order Request
+                  <Link href="/contact" className="btn btn-cool" style={{ width: '100%' }}>
+                    Place Order Request →
                   </Link>
                 </div>
               </div>

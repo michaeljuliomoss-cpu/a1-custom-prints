@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-grid">
           <div>
-            <div className="footer-logo">A1<span>.</span></div>
+            <div className="footer-logo">A1<span className="dot"></span></div>
             <p style={{ fontSize: '15px', lineHeight: 1.6, maxWidth: '350px' }}>
               Custom DTF printing and embroidery services in The Bahamas.
               Premium products, personalized for you.

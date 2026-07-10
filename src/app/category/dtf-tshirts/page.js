@@ -16,10 +16,10 @@ const PRICES = {
 };
 
 const COLORS = [
-  'White', 'Black', 'Nav', 'Sport Grey', 'Charcoal', 'Heather Gray',
+  'White', 'Black', 'Navy', 'Sport Grey', 'Charcoal', 'Heather Gray',
   'Safety Orange', 'Safety Green', 'Safety Pink', 'Purple', 'Red',
   'Maroon', 'Forest Green', 'Military Green', 'Carolina Blue',
-  'Royal Blue', ' d Navy', 'Orange', 'Gold', 'Yellow', 'Garnet',
+  'Royal Blue', 'Dark Navy', 'Orange', 'Gold', 'Yellow', 'Garnet',
   'Cardinal', 'Azalea', 'Ash', 'Daisy', 'Heliconia', 'Irish Green',
   'Kiwi', 'Lime', 'Sky', 'Sage', 'Sand', 'Tennessee Orange'
 ];
@@ -32,9 +32,7 @@ export default function DTFTshirts() {
   const [fileName, setFileName] = useState('');
   const [notes, setNotes] = useState('');
 
-  const unitPrice = sizeType === 'kids'
-    ? PRICES.kids[size] || 13
-    : PRICES.adult[size] || 14;
+  const unitPrice = sizeType === 'kids' ? PRICES.kids[size] || 13 : PRICES.adult[size] || 14;
   const total = unitPrice * qty;
 
   return (
@@ -69,8 +67,8 @@ export default function DTFTshirts() {
 
             {/* Product info + configurator */}
             <div className="product-info">
-              <div className="accent-line"></div>
-              <h1>T-Shirts with<br/>DTF Print</h1>
+              <div className="product-badge">🎨 Full-Color DTF Print</div>
+              <h1>T-Shirts with<br/>DTF <span className="gradient-text">Print</span></h1>
               <div className="price-range">$13 – $17 per shirt</div>
               <p className="description">
                 Gildan 100% cotton t-shirts with full-color DTF (Direct to Film) print.
@@ -79,51 +77,33 @@ export default function DTFTshirts() {
               </p>
 
               <div className="configurator">
-                {/* Size Type */}
                 <div className="config-group">
                   <span className="config-label">Age Type</span>
                   <div className="config-options">
-                    <button
-                      className={`config-chip ${sizeType === 'adult' ? 'active' : ''}`}
-                      onClick={() => { setSizeType('adult'); setSize('Medium'); }}
-                    >Adult</button>
-                    <button
-                      className={`config-chip ${sizeType === 'kids' ? 'active' : ''}`}
-                      onClick={() => { setSizeType('kids'); setSize('Small'); }}
-                    >Kids</button>
+                    <button className={`config-chip ${sizeType === 'adult' ? 'active' : ''}`} onClick={() => { setSizeType('adult'); setSize('Medium'); }}>Adult</button>
+                    <button className={`config-chip ${sizeType === 'kids' ? 'active' : ''}`} onClick={() => { setSizeType('kids'); setSize('Small'); }}>Kids</button>
                   </div>
                 </div>
 
-                {/* Size */}
                 <div className="config-group">
                   <span className="config-label">Size</span>
                   <div className="config-options">
                     {SIZES[sizeType].map(s => (
-                      <button
-                        key={s}
-                        className={`config-chip ${size === s ? 'active' : ''}`}
-                        onClick={() => setSize(s)}
-                      >{s}</button>
+                      <button key={s} className={`config-chip ${size === s ? 'active' : ''}`} onClick={() => setSize(s)}>{s}</button>
                     ))}
                   </div>
-                  <div style={{ marginTop: '8px', fontSize: '14px', color: 'var(--accent)', fontWeight: 600 }}>
+                  <div style={{ marginTop: '8px', fontSize: '14px', fontWeight: 700, color: 'var(--accent)' }}>
                     ${unitPrice} each
                   </div>
                 </div>
 
-                {/* Color */}
                 <div className="config-group">
                   <span className="config-label">T-Shirt Color</span>
-                  <select
-                    className="config-select"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                  >
+                  <select className="config-select" value={color} onChange={(e) => setColor(e.target.value)}>
                     {COLORS.map(c => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
 
-                {/* Quantity */}
                 <div className="config-group">
                   <span className="config-label">Quantity</span>
                   <div className="config-qty">
@@ -133,59 +113,33 @@ export default function DTFTshirts() {
                   </div>
                 </div>
 
-                {/* Upload Design */}
                 <div className="config-group">
                   <span className="config-label">Upload Your Design</span>
                   <label className="upload-zone" style={{ display: 'block' }}>
-                    <input
-                      type="file"
-                      accept="image/*,.pdf,.ai,.eps"
-                      style={{ display: 'none' }}
-                      onChange={(e) => setFileName(e.target.files?.[0]?.name || '')}
-                    />
-                    <p>{fileName || 'Click to upload your design (PNG, JPG, PDF, AI, EPS)'}</p>
+                    <input type="file" accept="image/*,.pdf,.ai,.eps" style={{ display: 'none' }}
+                      onChange={(e) => setFileName(e.target.files?.[0]?.name || '')} />
+                    <p>{fileName || '📎 Click to upload your design (PNG, JPG, PDF, AI, EPS)'}</p>
                   </label>
                 </div>
 
-                {/* Notes */}
                 <div className="config-group">
                   <span className="config-label">Additional Notes</span>
-                  <textarea
-                    className="config-select"
-                    style={{ minHeight: '80px', resize: 'vertical' }}
+                  <textarea className="config-select" style={{ minHeight: '80px', resize: 'vertical' }}
                     placeholder="Any special instructions?"
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
-                  />
+                    value={notes} onChange={(e) => setNotes(e.target.value)} />
                 </div>
 
-                {/* Order Summary */}
                 <div className="order-summary">
-                  <div className="order-line">
-                    <span>Product</span>
-                    <span>Gildan DTF T-Shirt ({color})</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Size</span>
-                    <span>{size} ({sizeType})</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Unit Price</span>
-                    <span>${unitPrice}</span>
-                  </div>
-                  <div className="order-line">
-                    <span>Quantity</span>
-                    <span>{qty}</span>
-                  </div>
-                  <div className="order-total">
-                    <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
-                  </div>
+                  <div className="order-line"><span>Product</span><span>Gildan DTF T-Shirt ({color})</span></div>
+                  <div className="order-line"><span>Size</span><span>{size} ({sizeType})</span></div>
+                  <div className="order-line"><span>Unit Price</span><span>${unitPrice}</span></div>
+                  <div className="order-line"><span>Quantity</span><span>{qty}</span></div>
+                  <div className="order-total"><span>Total</span><span>${total.toFixed(2)}</span></div>
                 </div>
 
                 <div style={{ marginTop: '20px' }}>
                   <Link href="/contact" className="btn btn-primary" style={{ width: '100%' }}>
-                    Place Order Request
+                    Place Order Request →
                   </Link>
                 </div>
               </div>
