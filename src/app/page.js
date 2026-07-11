@@ -17,16 +17,16 @@ export default function Home() {
                 Custom Prints & Embroidery · Nassau, Bahamas
               </div>
               <h1 className="display">
-                Make it <span className="gradient-text">yours.</span><br/>
-                Make it <span className="gradient-text-cool">bold.</span>
+                Make it yours.<br/>
+                Make it bold.
               </h1>
               <p className="hero-desc">
                 Premium DTF printing and embroidery on Gildan tees, corporate polos,
                 and school uniforms. Upload your design, pick your colors, and we handle the rest.
               </p>
               <div className="hero-buttons">
-                <Link href="/category/dtf-tshirts" className="btn btn-primary">Shop T-Shirts →</Link>
-                <Link href="/category/corporate-shirts" className="btn btn-cool">Corporate Wear</Link>
+                <Link href="/category/dtf-tshirts" className="btn btn-primary btn-large">Shop T-Shirts →</Link>
+                <Link href="/category/corporate-shirts" className="btn btn-secondary btn-large">Corporate Wear</Link>
               </div>
             </div>
             <div className="hero-image">
@@ -41,7 +41,7 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <h2>What we <span className="gradient-text">do</span></h2>
+            <h2>What we do</h2>
             <p>Three ways to customize. Pick your category, choose your style, upload your design.</p>
           </div>
           <div className="category-grid">
@@ -69,7 +69,7 @@ export default function Home() {
                 <h3>Corporate Shirts</h3>
                 <p>Port Authority, Paragon, and Blue Generation. Blank or embroidered for your team.</p>
                 <div className="category-price">Blank or Embroidered</div>
-                <span className="btn btn-cool" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
+                <span className="btn btn-blue" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
               </div>
             </Link>
 
@@ -83,7 +83,7 @@ export default function Home() {
                 <h3>School Uniform Polos</h3>
                 <p>Port Authority polos with custom school embroidery. Cotton and dryfit options.</p>
                 <div className="category-price">From $24</div>
-                <span className="btn btn-warm" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
+                <span className="btn btn-primary" style={{ fontSize: '14px', padding: '8px 20px' }}>Configure →</span>
               </div>
             </Link>
           </div>
@@ -94,7 +94,7 @@ export default function Home() {
       <section className="section" style={{ background: 'var(--bg)' }}>
         <div className="container">
           <div className="section-header">
-            <h2>How it <span className="gradient-text-cool">works</span></h2>
+            <h2>How it works</h2>
             <p>Simple steps from concept to custom product.</p>
           </div>
           <div className="steps-grid">
@@ -128,7 +128,7 @@ export default function Home() {
           <div className="cta-section">
             <h2>Ready to make it yours?</h2>
             <p>Get in touch and we'll bring your design to life.</p>
-            <Link href="/contact" className="btn">Get a Quote →</Link>
+            <Link href="/contact" className="btn btn-large">Get a Quote →</Link>
           </div>
         </div>
       </section>

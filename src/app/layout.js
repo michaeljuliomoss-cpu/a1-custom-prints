@@ -1,8 +1,12 @@
 import './globals.css';
-import { Inter, Poppins } from 'next/font/google';
+import { Nunito } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
-const poppins = Poppins({ subsets: ['latin'], variable: '--font-poppins', display: 'swap', weight: ['600', '700', '800'] });
+const nunito = Nunito({
+  subsets: ['latin'],
+  variable: '--font-nunito',
+  display: 'swap',
+  weight: ['400', '600', '700', '800'],
+});
 
 export const metadata = {
   title: 'A1 Custom Prints & Embroidery | Custom T-Shirts, Corporate Shirts & School Uniforms',
@@ -12,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={nunito.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>

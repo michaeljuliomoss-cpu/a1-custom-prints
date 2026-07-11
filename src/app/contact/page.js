@@ -26,7 +26,7 @@ export default function Contact() {
         <div className="container" style={{ maxWidth: '680px' }}>
           <div className="product-badge">💬 Let's Talk</div>
           <h1 className="display" style={{ fontSize: 'clamp(40px, 6vw, 72px)', marginBottom: '20px' }}>
-            Get a <span className="gradient-text">Quote</span>
+            Get a Quote
           </h1>
           <p style={{ fontSize: '18px', color: 'var(--ink-soft)', marginBottom: '40px' }}>
             Tell us what you need and we'll get back to you with pricing and details.
@@ -73,18 +73,18 @@ export default function Contact() {
               Send Inquiry →
             </button>
             {sent && (
-              <p style={{ textAlign: 'center', marginTop: '16px', color: 'var(--accent)', fontSize: '15px', fontWeight: 600 }}>
+              <p style={{ textAlign: 'center', marginTop: '16px', color: 'var(--ink)', fontSize: '15px', fontWeight: 700 }}>
                 ✅ Your email client should now be open. If not, email us at designerprinting001@gmail.com
               </p>
             )}
           </form>
 
-          <div style={{ marginTop: '40px', padding: '24px', background: 'var(--gradient-section)', borderRadius: '16px' }}>
+          <div style={{ marginTop: '40px', padding: '24px', background: 'var(--bg)', borderRadius: '16px' }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 700, marginBottom: '12px' }}>
               Contact Directly
             </h3>
             <p style={{ fontSize: '15px', color: 'var(--ink-soft)', marginBottom: '8px' }}>
-              📧 <a href="mailto:designerprinting001@gmail.com" style={{ color: 'var(--accent)', fontWeight: 600 }}>designerprinting001@gmail.com</a>
+              📧 <a href="mailto:designerprinting001@gmail.com" style={{ color: 'var(--accent-2)', fontWeight: 700 }}>designerprinting001@gmail.com</a>
             </p>
             <p style={{ fontSize: '15px', color: 'var(--ink-soft)' }}>
               📍 The Bahamas

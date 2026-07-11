@@ -68,7 +68,7 @@ export default function DTFTshirts() {
             {/* Product info + configurator */}
             <div className="product-info">
               <div className="product-badge">🎨 Full-Color DTF Print</div>
-              <h1>T-Shirts with<br/>DTF <span className="gradient-text">Print</span></h1>
+              <h1>T-Shirts with<br/>DTF Print</h1>
               <div className="price-range">$13 – $17 per shirt</div>
               <p className="description">
                 Gildan 100% cotton t-shirts with full-color DTF (Direct to Film) print.

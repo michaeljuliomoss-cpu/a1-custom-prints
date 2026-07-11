@@ -47,7 +47,7 @@ export default function SchoolUniforms() {
                   Available in cotton and dryfit. Full color and size charts available on request.
                 </p>
                 <div style={{ marginTop: '12px' }}>
-                  <a href="/images/category-2-corporate/port-authority-women-chart.pdf" target="_blank" rel="noreferrer" className="btn btn-warm" style={{ fontSize: '14px' }}>
+                  <a href="/images/category-2-corporate/port-authority-women-chart.pdf" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ fontSize: '14px' }}>
                     View Size Chart PDF →
                   </a>
                 </div>
@@ -57,7 +57,7 @@ export default function SchoolUniforms() {
             {/* Configurator */}
             <div className="product-info">
               <div className="product-badge">🎓 School Embroidery</div>
-              <h1>School Uniform<br/><span className="gradient-text">Polos</span></h1>
+              <h1>School Uniform<br/>Polos</h1>
               <div className="price-range">$24 – $32 per polo</div>
               <p className="description">
                 Port Authority brand polos with custom school embroidery.
@@ -81,7 +81,7 @@ export default function SchoolUniforms() {
                     <button className={`config-chip ${sizeGroup === 'SM-XL' ? 'active' : ''}`} onClick={() => setSizeGroup('SM-XL')}>Adult SM–XL</button>
                     <button className={`config-chip ${sizeGroup === 'XXL' ? 'active' : ''}`} onClick={() => setSizeGroup('XXL')}>Adult XXL</button>
                   </div>
-                  <div style={{ marginTop: '8px', fontSize: '14px', fontWeight: 700, color: 'var(--accent)' }}>
+                  <div style={{ marginTop: '8px', fontSize: '14px', fontWeight: 700, color: 'var(--ink)' }}>
                     ${price} each
                   </div>
                 </div>

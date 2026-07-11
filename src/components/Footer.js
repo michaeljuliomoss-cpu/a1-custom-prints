@@ -21,9 +21,10 @@ export default function Footer() {
           <div>
             <h4>Contact</h4>
             <ul>
+              <li><a href="tel:+12424548112">(242) 454-8112</a></li>
               <li><a href="mailto:designerprinting001@gmail.com">designerprinting001@gmail.com</a></li>
               <li><a href="/contact">Get a Quote</a></li>
-              <li>The Bahamas</li>
+              <li>Nassau, The Bahamas</li>
             </ul>
           </div>
         </div>

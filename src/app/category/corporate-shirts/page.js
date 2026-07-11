@@ -82,7 +82,7 @@ export default function CorporateShirts() {
             {/* Configurator */}
             <div className="product-info">
               <div className="product-badge">👔 Professional Grade</div>
-              <h1>Corporate<br/><span className="gradient-text-cool">Shirts</span></h1>
+              <h1>Corporate Shirts</h1>
               <div className="price-range">Blank: $22 · Embroidered: $35+</div>
               <p className="description">
                 Professional corporate shirts from Port Authority, Paragon, and Blue Generation.
@@ -151,7 +151,7 @@ export default function CorporateShirts() {
                 </div>
 
                 <div style={{ marginTop: '20px' }}>
-                  <Link href="/contact" className="btn btn-cool" style={{ width: '100%' }}>
+                  <Link href="/contact" className="btn btn-blue" style={{ width: '100%' }}>
                     Place Order Request →
                   </Link>
                 </div>
