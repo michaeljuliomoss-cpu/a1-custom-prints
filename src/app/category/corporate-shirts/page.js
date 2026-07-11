@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
@@ -41,6 +41,19 @@ export default function CorporateShirts() {
   const basePrice = embroidery ? 35 : 22;
   const total = basePrice * qty;
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Nav />
@@ -52,7 +65,7 @@ export default function CorporateShirts() {
           </div>
           <div className="product-hero-grid">
             {/* Images */}
-            <div>
+            <div className="reveal">
               <div className="product-images" style={{ marginBottom: '16px' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={currentStyle.image} alt={brand} key={brand + gender} />
@@ -80,7 +93,7 @@ export default function CorporateShirts() {
             </div>
 
             {/* Configurator */}
-            <div className="product-info">
+            <div className="product-info animate-fade-in-up">
               <div className="product-badge">👔 Professional Grade</div>
               <h1>Corporate Shirts</h1>
               <div className="price-range">Blank: $22 · Embroidered: $35+</div>
@@ -150,7 +163,10 @@ export default function CorporateShirts() {
                   <div className="order-total"><span>Total</span><span>${total.toFixed(2)}</span></div>
                 </div>
 
-                <div style={{ marginTop: '20px' }}>
+                <div style={{ marginTop: '20px', display: 'flex', gap: '12px', flexDirection: 'column' }}>
+                  <a href="https://suncash.me/A1" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>
+                    💳 Pay with Suncash →
+                  </a>
                   <Link href="/contact" className="btn btn-blue" style={{ width: '100%' }}>
                     Place Order Request →
                   </Link>

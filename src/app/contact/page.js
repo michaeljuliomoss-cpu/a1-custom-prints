@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 
@@ -18,22 +18,35 @@ export default function Contact() {
     setSent(true);
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Nav />
 
       <section className="product-hero">
         <div className="container" style={{ maxWidth: '680px' }}>
-          <div className="product-badge">💬 Let's Talk</div>
-          <h1 className="display" style={{ fontSize: 'clamp(40px, 6vw, 72px)', marginBottom: '20px' }}>
+          <div className="product-badge animate-fade-in-up">💬 Let's Talk</div>
+          <h1 className="display animate-fade-in-up stagger-1" style={{ fontSize: 'clamp(40px, 6vw, 72px)', marginBottom: '20px' }}>
             Get a Quote
           </h1>
-          <p style={{ fontSize: '18px', color: 'var(--ink-soft)', marginBottom: '40px' }}>
+          <p className="animate-fade-in-up stagger-2" style={{ fontSize: '18px', color: 'var(--ink-soft)', marginBottom: '40px' }}>
             Tell us what you need and we'll get back to you with pricing and details.
             For custom orders, please include your design details and quantities.
           </p>
 
-          <form onSubmit={handleSubmit} className="configurator">
+          <form onSubmit={handleSubmit} className="configurator reveal">
             <div className="config-group">
               <label className="config-label">Name</label>
               <input className="config-select" type="text" required
@@ -79,7 +92,16 @@ export default function Contact() {
             )}
           </form>
 
-          <div style={{ marginTop: '40px', padding: '24px', background: 'var(--bg)', borderRadius: '16px' }}>
+          <div className="payment-section reveal">
+            <h3>💳 How to Pay</h3>
+            <p>All payments are made with any credit or debit card through Suncash.</p>
+            <a href="https://suncash.me/A1" target="_blank" rel="noopener noreferrer" className="payment-badge">
+              Pay with Suncash →
+            </a>
+            <p className="payment-note">Secure card payments via suncash.me/A1</p>
+          </div>
+
+          <div className="reveal" style={{ marginTop: '40px', padding: '24px', background: 'var(--bg)', borderRadius: '16px' }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 700, marginBottom: '12px' }}>
               Contact Directly
             </h3>

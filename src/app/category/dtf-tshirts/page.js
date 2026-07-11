@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
@@ -35,6 +35,19 @@ export default function DTFTshirts() {
   const unitPrice = sizeType === 'kids' ? PRICES.kids[size] || 13 : PRICES.adult[size] || 14;
   const total = unitPrice * qty;
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Nav />
@@ -46,7 +59,7 @@ export default function DTFTshirts() {
           </div>
           <div className="product-hero-grid">
             {/* Images */}
-            <div>
+            <div className="reveal">
               <div className="product-images" style={{ marginBottom: '16px' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/category-1-dtf-tshirts/gildan-adult-size-chart.jpg" alt="Gildan T-Shirt" />
@@ -66,7 +79,7 @@ export default function DTFTshirts() {
             </div>
 
             {/* Product info + configurator */}
-            <div className="product-info">
+            <div className="product-info animate-fade-in-up">
               <div className="product-badge">🎨 Full-Color DTF Print</div>
               <h1>T-Shirts with<br/>DTF Print</h1>
               <div className="price-range">$13 – $17 per shirt</div>
@@ -92,7 +105,7 @@ export default function DTFTshirts() {
                       <button key={s} className={`config-chip ${size === s ? 'active' : ''}`} onClick={() => setSize(s)}>{s}</button>
                     ))}
                   </div>
-                  <div style={{ marginTop: '8px', fontSize: '14px', fontWeight: 700, color: 'var(--accent)' }}>
+                  <div style={{ marginTop: '8px', fontSize: '14px', fontWeight: 700, color: 'var(--accent-2)' }}>
                     ${unitPrice} each
                   </div>
                 </div>
@@ -137,8 +150,11 @@ export default function DTFTshirts() {
                   <div className="order-total"><span>Total</span><span>${total.toFixed(2)}</span></div>
                 </div>
 
-                <div style={{ marginTop: '20px' }}>
-                  <Link href="/contact" className="btn btn-primary" style={{ width: '100%' }}>
+                <div style={{ marginTop: '20px', display: 'flex', gap: '12px', flexDirection: 'column' }}>
+                  <a href="https://suncash.me/A1" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>
+                    💳 Pay with Suncash →
+                  </a>
+                  <Link href="/contact" className="btn btn-secondary" style={{ width: '100%' }}>
                     Place Order Request →
                   </Link>
                 </div>

@@ -9,6 +9,9 @@ export default function Footer() {
               Custom DTF printing and embroidery services in The Bahamas.
               Premium products, personalized for you.
             </p>
+            <a href="https://suncash.me/A1" target="_blank" rel="noopener noreferrer" className="footer-payment">
+              💳 Pay with Suncash →
+            </a>
           </div>
           <div>
             <h4>Categories</h4>

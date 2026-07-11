@@ -1,8 +1,26 @@
+'use client';
+
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
 export default function Home() {
+  // Scroll reveal — IntersectionObserver, no deps
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Nav />
@@ -12,19 +30,19 @@ export default function Home() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-text">
-              <div className="hero-badge">
+              <div className="hero-badge animate-fade-in-up stagger-1">
                 <span className="dot-pulse"></span>
                 Custom Prints & Embroidery · Nassau, Bahamas
               </div>
-              <h1 className="display">
+              <h1 className="display animate-fade-in-up stagger-2">
                 Make it yours.<br/>
                 Make it bold.
               </h1>
-              <p className="hero-desc">
+              <p className="hero-desc animate-fade-in-up stagger-3">
                 Premium DTF printing and embroidery on Gildan tees, corporate polos,
                 and school uniforms. Upload your design, pick your colors, and we handle the rest.
               </p>
-              <div className="hero-buttons">
+              <div className="hero-buttons animate-fade-in-up stagger-4">
                 <Link href="/category/dtf-tshirts" className="btn btn-primary btn-large">Shop T-Shirts →</Link>
                 <Link href="/category/corporate-shirts" className="btn btn-secondary btn-large">Corporate Wear</Link>
               </div>
@@ -40,11 +58,11 @@ export default function Home() {
       {/* Categories */}
       <section className="section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <h2>What we do</h2>
             <p>Three ways to customize. Pick your category, choose your style, upload your design.</p>
           </div>
-          <div className="category-grid">
+          <div className="category-grid reveal-stagger">
             {/* Category 1 */}
             <Link href="/category/dtf-tshirts" className="category-card">
               <div className="category-card-image">
@@ -93,11 +111,11 @@ export default function Home() {
       {/* How it works */}
       <section className="section" style={{ background: 'var(--bg)' }}>
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <h2>How it works</h2>
             <p>Simple steps from concept to custom product.</p>
           </div>
-          <div className="steps-grid">
+          <div className="steps-grid reveal-stagger">
             <div className="step-card">
               <div className="step-icon">🎨</div>
               <h3>Choose</h3>
@@ -122,10 +140,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Payment */}
       <section className="section">
         <div className="container">
-          <div className="cta-section">
+          <div className="payment-section reveal">
+            <h3>💳 How to Pay</h3>
+            <p>All payments are made with any credit or debit card through Suncash.</p>
+            <a href="https://suncash.me/A1" target="_blank" rel="noopener noreferrer" className="payment-badge">
+              Pay with Suncash →
+            </a>
+            <p className="payment-note">Secure card payments via suncash.me/A1</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section" style={{ paddingTop: '0' }}>
+        <div className="container">
+          <div className="cta-section reveal">
             <h2>Ready to make it yours?</h2>
             <p>Get in touch and we'll bring your design to life.</p>
             <Link href="/contact" className="btn btn-large">Get a Quote →</Link>
