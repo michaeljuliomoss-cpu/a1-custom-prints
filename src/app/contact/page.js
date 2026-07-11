@@ -99,6 +99,26 @@ export default function Contact() {
               Pay with Suncash →
             </a>
             <p className="payment-note">Secure card payments via suncash.me/A1</p>
+
+            <div className="payment-steps">
+              <div className="payment-step">
+                <div className="payment-step-num">1</div>
+                <p>Click the button above and pay with any credit or debit card via Suncash</p>
+              </div>
+              <div className="payment-step">
+                <div className="payment-step-num">2</div>
+                <p>Screenshot your payment confirmation</p>
+              </div>
+              <div className="payment-step">
+                <div className="payment-step-num">3</div>
+                <p>Send the screenshot to us via email or WhatsApp along with your order details</p>
+              </div>
+            </div>
+
+            <div className="payment-contact">
+              <a href="mailto:designerprinting001@gmail.com" className="payment-contact-link">📧 Email us</a>
+              <a href="https://wa.me/12424548112" target="_blank" rel="noopener noreferrer" className="payment-contact-link">💬 WhatsApp us</a>
+            </div>
           </div>
 
           <div className="reveal" style={{ marginTop: '40px', padding: '24px', background: 'var(--bg)', borderRadius: '16px' }}>
