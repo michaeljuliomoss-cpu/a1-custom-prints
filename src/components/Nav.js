@@ -10,8 +10,15 @@ export default function Nav() {
     <nav className="nav">
       <div className="nav-inner">
         <Link href="/" className="nav-logo">A1<span className="dot"></span></Link>
-        <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-          {open ? '✕' : '☰'}
+        <button
+          className={`nav-toggle ${open ? 'is-open' : ''}`}
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+        >
+          <span className="burger-line"></span>
+          <span className="burger-line"></span>
+          <span className="burger-line"></span>
         </button>
         <div className={`nav-links ${open ? 'open' : ''}`}>
           <Link href="/category/dtf-tshirts" onClick={() => setOpen(false)}>DTF T-Shirts</Link>

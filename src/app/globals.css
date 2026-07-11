@@ -262,9 +262,40 @@ h3, .h3 {
   display: none;
   background: none;
   border: none;
-  font-size: 24px;
   cursor: pointer;
   color: var(--ink);
+  width: 40px;
+  height: 40px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+}
+
+/* Burger icon — 3 lines morph to X */
+.burger-line {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--ink);
+  border-radius: 3px;
+  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease);
+}
+
+/* Open state — morph to X */
+.nav-toggle.is-open .burger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.is-open .burger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle.is-open .burger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Hero */
@@ -903,7 +934,7 @@ h3, .h3 {
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .nav-toggle { display: block; }
+  .nav-toggle { display: flex; }
   .nav-links.open {
     display: flex;
     flex-direction: column;
@@ -915,7 +946,15 @@ h3, .h3 {
     padding: var(--space-5);
     border-bottom: 2px solid var(--line);
     box-shadow: var(--shadow-card);
+    animation: slideDown 0.3s var(--ease) both;
   }
+  .nav-links.open a {
+    animation: fadeInUp 0.4s var(--ease) both;
+  }
+  .nav-links.open a:nth-child(1) { animation-delay: 60ms; }
+  .nav-links.open a:nth-child(2) { animation-delay: 120ms; }
+  .nav-links.open a:nth-child(3) { animation-delay: 180ms; }
+  .nav-links.open a:nth-child(4) { animation-delay: 240ms; }
   .category-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: var(--space-3); text-align: center; }
@@ -982,6 +1021,17 @@ h3, .h3 {
 @keyframes shimmer {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.6; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Animation utility classes */

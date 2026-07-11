@@ -94,7 +94,7 @@ export default function Contact() {
 
           <div className="payment-section reveal">
             <h3>💳 How to Pay</h3>
-            <p>All payments are made with any credit or debit card through Suncash.</p>
+            <p>All payments are to be made with any credit or debit card through Suncash. This is our only payment method.</p>
             <a href="https://suncash.me/A1" target="_blank" rel="noopener noreferrer" className="payment-badge">
               Pay with Suncash →
             </a>
